@@ -1,0 +1,7 @@
+{
+  "name": "appiglesia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
