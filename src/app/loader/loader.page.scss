@@ -1,0 +1,40 @@
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .loader-image {
+    width: 500px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto;
+  }
+  
+  .palpitating {
+    animation: heartbeat 1.5s infinite;
+  }
+  
+  @keyframes heartbeat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  .loading-message {
+    margin-top: 10px;
+  }
+  
+  .content-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .fade-out {
+    opacity: 1;
+  }
+  

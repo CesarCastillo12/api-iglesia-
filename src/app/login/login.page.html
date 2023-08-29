@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+    <div class="content-container">
+      <div class="welcome-container">
+        <h1 id="h1-welcome">
+          <span>Hola,</span>
+          <br>
+          <span>Bienvenido</span>
+          <br>
+          <span>De vuelta</span>
+        </h1>
+        <ion-label *ngIf="errorMessage" class="error-message">{{ errorMessage }}</ion-label>
+      </div>
+      <div class="image-container">
+        <img src="https://images.builderservices.io/s/cdn/v1.0/i/m?url=https%3A%2F%2Fstorage.googleapis.com%2Fproduction-hostgator-mexico-v1-0-8%2F808%2F1211808%2F678J13Az%2F08e32c92b94143ad9377f004e7d08a14&methods=resize%2C1200%2C5000" alt="Imagen de fondo">
+      </div>
+    </div>
+    <form (ngSubmit)="login()" class="login-form">
+      <ion-item lines="none" class="input-rounded ion-margin-bottom">
+        <ion-icon slot="start" name="person" color="success"></ion-icon>
+        <ion-input type="text" placeholder="Nombre de usuario" color="primary" [(ngModel)]="nombreUsuario" name="nombreUsuario"></ion-input>
+      </ion-item>
+      <ion-item lines="none" class="input-rounded">
+        <ion-icon slot="start" name="key" color="success"></ion-icon>
+        <ion-input type="password" placeholder="Contraseña" color="primary" [(ngModel)]="password" name="password"></ion-input>
+      </ion-item>
+      <div class="form-links">
+        <button id="login-button" type="submit">Iniciar sesión</button>
+        <p id="register-link-paragraph">
+          ¿No tienes una cuenta? <a (click)="goToRegister()" id="register-link" class="register-link">Regístrate</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -9,7 +9,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegisterPage {
   nombreInput: string = '';
-  correoInput: string = '';
+  nombreUsuarioInput: string = '';
   passwordInput: string = '';
 
   constructor(
@@ -18,7 +18,7 @@ export class RegisterPage {
   ) {}
 
   async registro() {
-    if (!this.nombreInput || !this.correoInput || !this.passwordInput) {
+    if (!this.nombreInput || !this.nombreUsuarioInput || !this.passwordInput) {
       const toast = await this.toastController.create({
         message: 'Por favor, complete todos los campos.',
         duration: 2000,
@@ -31,21 +31,25 @@ export class RegisterPage {
 
     const formData = {
       nombre: this.nombreInput,
-      correo: this.correoInput,
+      nombreUsuario: this.nombreUsuarioInput,
       contraseña: this.passwordInput,
     };
 
-    this.http.post('http://localhost:3000/registro', formData)
-      .subscribe(response => {
-        console.log('Usuario registrado con éxito:', response);
-
-        // Muestra un mensaje de éxito
-        this.mostrarMensajeExito();
-
-        // Puedes redirigir al usuario a otra página aquí si lo deseas
-      }, error => {
-        console.error('Error al registrar usuario:', error);
-      });
+    this.http.post('https://api28.onrender.com/registro', formData)
+      .subscribe(
+        response => {
+          console.log('Usuario registrado con éxito:', response);
+          this.mostrarMensajeExito();
+        },
+        error => {
+          if (error.status === 409) {
+            this.mostrarMensajeError('El nombre de usuario o el nombre ya existen.');
+          } else {
+            this.mostrarMensajeError('Error al registrar usuario.');
+          }
+          console.error('Error al registrar usuario:', error);
+        }
+      );
   }
 
   async mostrarMensajeExito() {
@@ -53,7 +57,17 @@ export class RegisterPage {
       message: 'Usuario registrado con éxito.',
       duration: 2000,
       position: 'top',
-      color: 'success', // Puedes cambiar el color a 'success' para un mensaje de éxito
+      color: 'success',
+    });
+    toast.present();
+  }
+
+  async mostrarMensajeError(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      position: 'top',
+      color: 'danger',
     });
     toast.present();
   }

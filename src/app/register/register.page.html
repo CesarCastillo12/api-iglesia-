@@ -1,26 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Registro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<style>
+  
+</style>
 
-<ion-content>
-  <form #registroForm="ngForm" (ngSubmit)="registro()">
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input [(ngModel)]="nombreInput" name="nombre" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Correo</ion-label>
-      <ion-input type="email" [(ngModel)]="correoInput" name="correo" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="passwordInput" name="password" required></ion-input>
-    </ion-item>
-
-    <ion-button expand="full" type="submit">Registrar</ion-button>
-  </form>
+<ion-content class="ion-padding">
+  <div class="container">
+    <form #registerForm="ngForm" (ngSubmit)="registro()" class="form-style">
+      <h1 id="h1-welcome">
+        <span>Hola,</span>
+        <br>
+        <span>Comencemos</span>
+      </h1>
+      
+      <ion-item class="input-rounded ion-margin-bottom">
+        <ion-icon slot="start" name="person" color="success"></ion-icon>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nombreInput" name="nombre" required></ion-input>
+      </ion-item>
+      
+      <ion-item class="input-rounded ion-margin-bottom">
+        <ion-icon slot="start" name="person" color="success"></ion-icon>
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input [(ngModel)]="nombreUsuarioInput" name="nombreUsuario" required></ion-input>
+      </ion-item>
+      
+      <ion-item class="input-rounded ion-margin-bottom">
+        <ion-icon slot="start" name="key" color="success"></ion-icon>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="passwordInput" name="password" required></ion-input>
+      </ion-item>
+      
+      <button expand="full" type="submit" id="register-button" class="register-button-style">Registrar</button>
+      
+      <p id="login-link-paragraph">
+        ¿Ya tienes una cuenta?
+        <a routerLink="/login" id="login-link"> Inicia sesión</a>
+      </p>
+    </form>
+  </div>
 </ion-content>
