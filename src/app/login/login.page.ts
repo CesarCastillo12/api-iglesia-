@@ -36,14 +36,24 @@ export class LoginPage {
       contraseña: this.password,
     };
 
-    this.http.post('https://api28.onrender.com/login', formData)
+    this.http.post('http://localhost:3000/login', formData)
       .subscribe(
-        response => {
+        (response: any) => {
           console.log('Inicio de sesión exitoso:', response);
-          this.router.navigateByUrl('/home');
+          if (response.role === 'usuario') {
+            this.router.navigateByUrl('/home');
+          } else if (response.role === 'administrador') {
+            this.router.navigateByUrl('/admin');
+          }
         },
-        error => {
-          this.errorMessage = 'Credenciales incorrectas o error en el servidor. Por favor, inténtalo nuevamente.';
+        async (error) => {
+          const toast = await this.toastController.create({
+            message: 'Credenciales incorrectas o error en el servidor. Por favor, inténtalo nuevamente.',
+            duration: 2000,
+            position: 'top',
+            color: 'danger',
+          });
+          toast.present();
           console.error('Error en inicio de sesión:', error);
         }
       );

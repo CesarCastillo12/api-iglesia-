@@ -1,0 +1,45 @@
+<ion-content class="ion-padding">
+  <div class="container">
+    <form (ngSubmit)="agregarAdministrador()" class="form-style">
+      <h1 id="h1-welcome">
+        <span>Hola,</span>
+        <br>
+        <span>Administrador</span>
+      </h1>
+      
+      <ion-item class="input-rounded ion-margin-bottom">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input [(ngModel)]="nuevoAdmin.nombre" name="nombre" required></ion-input>
+      </ion-item>
+      
+      <ion-item class="input-rounded ion-margin-bottom">
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input [(ngModel)]="nuevoAdmin.nombreUsuario" name="nombreUsuario" required></ion-input>
+      </ion-item>
+      
+      <ion-item class="input-rounded ion-margin-bottom">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="nuevoAdmin.password" name="password" required></ion-input>
+      </ion-item>
+      
+      <button expand="full" type="submit" id="register-button" class="register-button-style">Registrar</button>
+    </form>
+  </div>
+</ion-content>
+
+<!-- Botones de navegación en el pie de página -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="irAPaginaProductos()" color="primary" class="ion-margin-end" fill="clear">
+      <ion-icon name="cart" slot="icon-only"></ion-icon>
+      Productos
+    </ion-button>
+    <ion-button (click)="irAPaginaAdmin()" color="primary" fill="clear">
+      <ion-icon name="people" slot="icon-only"></ion-icon>
+      Admin
+    </ion-button>
+    <ion-button routerLink="/login" fill="clear">
+      <ion-icon name="exit" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

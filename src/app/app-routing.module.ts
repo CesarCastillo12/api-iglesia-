@@ -25,6 +25,18 @@ const routes: Routes = [
     path: 'loader',
     loadChildren: () => import('./loader/loader.module').then( m => m.LoaderPageModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'productos',
+    loadChildren: () => import('./server/productos/productos.module').then( m => m.ProductosPageModule)
+  },
+  {
+    path: 'tabnav-admin',
+    loadChildren: () => import('./server/tabnav-admin/tabnav-admin.module').then( m => m.TabnavAdminPageModule)
+  },
 ];
 
 @NgModule({

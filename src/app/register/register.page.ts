@@ -35,7 +35,7 @@ export class RegisterPage {
       contraseña: this.passwordInput,
     };
 
-    this.http.post('https://api28.onrender.com/registro', formData)
+    this.http.post('http://localhost:3000/registro', formData)
       .subscribe(
         response => {
           console.log('Usuario registrado con éxito:', response);

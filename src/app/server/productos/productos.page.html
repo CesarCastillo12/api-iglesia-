@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Contenido de la página de productos -->
+</ion-content>
+
+<!-- Botones de navegación en el pie de página -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="irAPaginaProductos()" color="primary" class="ion-margin-end" fill="clear">
+      <ion-icon name="cart" slot="icon-only"></ion-icon>
+      Productos
+    </ion-button>
+    <ion-button (click)="irAPaginaAdmin()" color="primary" fill="clear">
+      <ion-icon name="people" slot="icon-only"></ion-icon>
+      Admin
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

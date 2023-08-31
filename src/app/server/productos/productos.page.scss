@@ -1,0 +1,12 @@
+ion-footer {
+    ion-toolbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 48px; /* Ajusta la altura según sea necesario */
+      
+      ion-button {
+        margin: 0 30px; /* Ajusta el margen horizontal según sea necesario */
+      }
+    }
+  }
